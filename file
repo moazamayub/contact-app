@@ -1,3 +1,0 @@
-sum = lambda x : x + x
-
-print(sum(10))
