@@ -8,6 +8,7 @@ class Student(Person):
         self.roll_num = roll_num
         self.father_name = father_name
 
+
     def printinfo(self):
         super().printinfo()
 
@@ -16,10 +17,15 @@ class Student(Person):
         print(f"father is {self.father_name}")
 
 
+    def editable_stuff(self, new):
+        super().editable_stuff(new)
 
+        self.gpa = new["gpa"]
+        self.roll_num = new["roll_num"]
+        self.father_name = new["father_name"]
 
-
-
+    def editable_atributes(self):
+        return super().editable_atributes() + ['gpa', 'roll_num', 'father_name']
 
 
 
