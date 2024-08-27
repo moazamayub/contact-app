@@ -23,17 +23,15 @@ class Contacts:
                 self.contacts.remove(x)
                 break
 
-    def edit(self, newinfo):
-        for x in self.contacts:
-            if x.name == newinfo["name"]:
-                x.number = newinfo["number"]
-                x.dateofbirth = newinfo["dateofbirth"]
-                break
+
+
+
 
 
 
 one = 3
 x = Contacts()
+
 
 dic = {}
 while one != 0:
@@ -75,16 +73,22 @@ while one != 0:
         x.printcontacts()
         one = input("press 0 to go back ")
     if one == "4":
+        array = []
+        content = {}
+        selected_content = None
         newname = input("who`s info you want to change")
-        newnum = input("newnumber?")
-        newage = input("changed birth year in d/m/y format?")
-        formateddate = datetime.strptime(newage, "%d/%m/%Y").date()
+        for contact in x.contacts:
+            if newname == contact.name:
+                array = contact.editable_atributes()
+                selected_content = contact
+                break
 
-        info = {"name": newname,
-                "number": newnum,
-                "dateofbirth": formateddate}
+        for i in array:
+            data = input(f"enter {i}")
+            content[i] = data
+        selected_content.editable_stuff(content)
 
-        x.edit(info)
+
         print("done")
         one = input("press 0 to go back")
     if one == "5":
