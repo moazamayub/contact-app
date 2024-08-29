@@ -24,11 +24,6 @@ class Contacts:
                 break
 
 
-
-
-
-
-
 one = 3
 x = Contacts()
 
@@ -84,8 +79,13 @@ while one != 0:
                 break
 
         for i in array:
+            if i == 'dateofbirth':
+                print("enter in 2/04/2005 format")
             data = input(f"enter {i}")
-            content[i] = data
+
+            if data != '':
+                content[i] = data
+
         selected_content.editable_stuff(content)
 
 
