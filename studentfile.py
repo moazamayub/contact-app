@@ -20,9 +20,12 @@ class Student(Person):
     def editable_stuff(self, new):
         super().editable_stuff(new)
 
-        self.gpa = new["gpa"]
-        self.roll_num = new["roll_num"]
-        self.father_name = new["father_name"]
+        if new.get("gpa") != None:
+            self.gpa = new["gpa"]
+        if new.get("roll_num") != None:
+            self.roll_num = new["roll_num"]
+        if new.get("father_name") != None:
+            self.father_name = new["father_name"]
 
     def editable_atributes(self):
         return super().editable_atributes() + ['gpa', 'roll_num', 'father_name']

@@ -20,10 +20,12 @@ class Employe(Person):
     def editable_stuff(self, new):
         super().editable_stuff(new)
 
-
-        self.emploee_id = new["emploee_id"]
-        self.work = new["work"]
-        self.salary = new["salary"]
+        if new.get("emploee_id") != None:
+            self.emploee_id = new["emploee_id"]
+        if new.get("work") != None:
+            self.work = new["work"]
+        if new.get("salary") != None:
+            self.salary = new["salary"]
 
     def editable_atributes(self):
 
